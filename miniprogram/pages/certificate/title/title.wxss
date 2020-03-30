@@ -1,0 +1,104 @@
+/* pages/dailyAttendance/title/title.wxss */
+text {
+    display: block;
+}
+.my-level {
+    position: relative;
+    width: 750rpx;
+    height: 213rpx;
+    margin-bottom: 30rpx;
+    overflow: hidden;
+}
+.rectangle {
+    position: absolute;
+    z-index: -1;
+    width: 1258rpx;
+    height: 304rpx;
+    background: linear-gradient(to bottom, rgba(102, 243, 243, 1), rgba(46, 204, 228, 1));
+    border-radius: 50%;
+    transform:  translateX(-262rpx) translateY(-91rpx);
+
+}
+.mylevel-flex {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 25rpx;
+    padding-left: 28rpx;
+}
+.mylevel-icon {
+    width: 143rpx;
+    height: 104rpx;
+}
+.mylevel-box {
+    flex: 1;
+    margin-left: 35rpx;
+    color: white;
+}
+.level-content {
+    font-size: 30rpx;
+    margin-bottom: 24rpx;
+}
+.level-integral {
+    width: 205rpx;
+    height: 34rpx;
+    border-radius: 17rpx;
+    background-color: rgba(0, 0, 0, 0.1);
+    font-size: 24rpx;
+    letter-spacing: 1rpx;
+    line-height: 36rpx;
+    text-align: center;
+}
+.level-strategy {
+    margin-top: 5rpx;
+    margin-right: -10rpx;
+    width: 188rpx;
+    height: 40rpx;
+    border-radius: 20rpx;
+    background-color: rgba(87, 211, 230, 1);
+    text-align: center;
+    font-size: 24rpx;
+    color: white;
+}
+.mylevel-flex navigator {
+    background-color: transparent;
+}
+.strategy-icon {
+    width: 20rpx;
+    height: 26rpx;
+    margin-top: 7rpx;
+}
+
+/*--------等级积分模块--------*/
+/*多行flex布局*/
+.level-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;    
+    width: 672rpx;
+    margin: 0 auto;
+}
+/*每个奖牌盒子样式*/
+.level-box {
+    width: 224rpx;
+    height: 205rpx;
+    margin-bottom: 3.5vh;
+}
+.level-icon {
+    display: block;
+    width: 158rpx;
+    height: 120rpx;
+    margin: 0 auto;
+    margin-bottom: 18rpx;
+}
+.level-name {
+    font-size: 28rpx;
+    text-align: center;
+}
+.level-require {
+    font-size: 24rpx;
+    color: rgba(199, 204, 210, 1);
+    text-align: center;
+}
+[src*="1.png"] {
+    width: 122rpx;
+}

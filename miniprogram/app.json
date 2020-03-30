@@ -1,0 +1,78 @@
+{
+        "pages": [
+                "pages/pinggu/pinggu",
+                "pages/index/index",
+                "pages/im/im",
+                "pages/im/room/room",
+                "pages/home/home",
+                "pages/about/about",
+                "pages/certificate/certificate",
+                "pages/certificate/title/title",
+                "pages/rank/rank"
+        ],
+        "permission": {
+                "scope.userLocation": {
+                        "desc": "你的位置信息将用于小程序位置接口"
+                },
+                "scope.userLocationBackground": {
+                        "desc": "你的位置信息将用户记录您的踪迹"
+                },
+                "scope.address": {}
+        },
+        "requiredBackgroundModes": [
+                "audio",
+                "location"
+        ],
+        "networkTimeout": {
+                "request": 10000,
+                "connectSocket": 10000,
+                "uploadFile": 10000,
+                "downloadFile": 10000
+        },
+        "window": {
+                "navigationBarTextStyle": "black",
+                "navigationBarTitleText": "自我审查证",
+                "navigationBarBackgroundColor": "#F8F8F8",
+                "backgroundColor": "#F8F8F8"
+        },
+        "tabBar": {
+                "color": "#7A7E83",
+                "selectedColor": "#3cc51f",
+                "borderStyle": "black",
+                "backgroundColor": "#ffffff",
+                "list": [
+                        {
+                                "pagePath": "pages/pinggu/pinggu",
+                                "iconPath": "images/member.png",
+                                "selectedIconPath": "images/member_on.png",
+                                "text": "安全评估"
+                        },
+                        {
+                                "pagePath": "pages/index/index",
+                                "iconPath": "images/index.png",
+                                "selectedIconPath": "images/index_on.png",
+                                "text": "跟踪"
+                        },
+                        {
+                                "pagePath": "pages/home/home",
+                                "iconPath": "images/history.png",
+                                "selectedIconPath": "images/history_on.png",
+                                "text": "历史"
+                        },
+                        {
+                                "pagePath": "pages/certificate/certificate",
+                                "iconPath": "images/safe.png",
+                                "selectedIconPath": "images/safe_on.png",
+                                "text": "证书"
+                        }
+                ]
+        },
+       
+        "navigateToMiniProgramAppIdList": [
+                "wx2f951f271772af3d"
+        ],
+        "debug": false,
+        "style": "v2",
+        "cloud": true,
+        "sitemapLocation": "sitemap.json"
+}

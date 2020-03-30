@@ -1,0 +1,33 @@
+<view class="section">
+        <picker mode="date" value="{{start_date}}" start="2020-02-20" end="2020-12-31" bindchange="bindDateStartChange">
+                <view class="picker">
+                        当前选择: {{start_date}}
+                </view>
+        </picker>
+</view>
+
+<view class="" hover-class="none" hover-stop-propagation="false" style="width: 100%; height: 100%;">
+        <map id="myRecordMap" markers="{{markers}}" style="width:100%;height:700rpx;" longitude="{{longitude}}" latitude="{{latitude}}" scale='{{scale}}' show-location show-compass show-scale circles="{{circles}}" polyline="{{polyline}}" bindmarkertap='bindmarkertap' bindpoitap="bindpoitap"
+                controls="{{}}" bindregionchange="regionchange">
+                <cover-view class="controls_right">
+                        <cover-view class="img" bindtap="controltap">
+                                <cover-image class="track_img" src="/images/map_danger.png" />
+                        </cover-view>
+                </cover-view>
+                <cover-view class="controls_right2">
+                        <cover-view class="img" bindtap="settingtap">
+                                <cover-image class="track_img" src="/images/setting.png" />
+                        </cover-view>
+                </cover-view>
+
+        </map>
+        <mp-cells ext-class="my-cells" wx:if="{{pointIsShow}}">
+                <block wx:for="{{pointArr}}" wx:for-item="v" wx:key="k">
+                        <mp-cell link hover data-lat="{{v.latitude}}" data-lng="{{v.longitude}}" data-title="{{v.title}}" data-des="{{v.address}}" data-duration="{{v.duration}}" data-distance="{{v.distance}}" data-id="{{v.id}}" bindtap='chooseSerTip'>
+                                <view>{{v.title}}</view>
+                                <view style="font-size: 24rpx;color: #888888;">{{v.address}}</view>
+                                <view style="font-size: 22rpx" slot="footer">离家{{v.distance_t}}</view>
+                        </mp-cell>
+                </block>
+        </mp-cells>
+</view>

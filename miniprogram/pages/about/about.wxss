@@ -1,0 +1,2 @@
+/* miniprogram/pages/about/about.wxss */
+@import "../../style/guide.wxss";

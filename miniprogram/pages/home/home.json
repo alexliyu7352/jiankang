@@ -1,0 +1,8 @@
+{
+"navigationBarTitleText": "跟踪轨迹历史",
+"usingComponents": {
+        "mp-cells": "../../weui/cells/cells",
+        "mp-cell": "../../weui/cell/cell",
+        "mp-slideview": "../../weui/slideview/slideview"
+}
+}

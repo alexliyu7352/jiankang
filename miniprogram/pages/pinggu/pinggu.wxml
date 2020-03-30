@@ -1,0 +1,134 @@
+<mp-toptips msg="{{error}}" type="error" show="{{error}}">
+</mp-toptips>
+
+<mp-form-page title="自我安全评估" subtitle="请根据您的真实情况填写下表, 提交后系统会根据疫情大数据对您的安全进行评估" wx:if="{{showAnalytics!==true}}">
+        <mp-form id="form" rules="{{rules}}" models="{{formData}}">
+                <mp-cells title="您的外出时间" footer="日期必须要填写, 时间非必须,但请尽量填写完整">
+                        <mp-cell show-error prop="startDate" title="出行日期" ext-class=" ">
+                                <picker data-field="startDate" mode="date" value="{{startDate}}" start="2020-01-01" end="2020-12-01" bindchange="bindStartDateChange">
+                                        <view class="weui-input">{{startDate}}</view>
+                                </picker>
+                        </mp-cell>
+                        <mp-cell show-error prop="startTime" title="出行时间 " ext-class=" ">
+                                <picker data-field="startTime" mode="time" value="{{startTime}}" start="00:00" end="23:59" bindchange="bindStartTimeChange">
+                                        <view class="weui-input">{{startTime}}</view>
+                                </picker>
+                        </mp-cell>
+                        <mp-cell show-error prop="endDate" title="结束日期" ext-class=" ">
+                                <picker data-field="endDate" mode="date" value="{{endDate}}" start="{{startDate}}" end="2020-12-01" bindchange="bindEndDateChange">
+                                        <view class="weui-input">{{endDate}}</view>
+                                </picker>
+                        </mp-cell>
+                        <mp-cell show-error prop="endTime" title="结束时间 " ext-class=" ">
+                                <picker data-field="endTime" mode="time" value="{{endTime}}" start="00:00" end="23:59" bindchange="bindEndTimeChange">
+                                        <view class="weui-input">{{endTime}}</view>
+                                </picker>
+                        </mp-cell>
+                </mp-cells>
+
+                <mp-cells title="这段时间您在哪里?" wx:if="{{showRadioField}}">
+                        <mp-checkbox-group prop="radio" multi="{{false}}" bindchange="outTyperadioChange">
+                                <mp-checkbox label="在飞机上" value="1" checked="{{false}}"></mp-checkbox>
+                                <mp-checkbox label="在火车上" value="2" checked="{{false}}"></mp-checkbox>
+                                <mp-checkbox label="在地铁上" value="3" checked="{{false}}"></mp-checkbox>
+                                <mp-checkbox label="在长途客车/大巴上" value="4" checked="{{false}}"></mp-checkbox>
+                                <mp-checkbox label="在公交车上" value="5" checked="{{false}}"></mp-checkbox>
+                                <mp-checkbox label="在出租车上" value="6" checked="{{false}}"></mp-checkbox>
+                                <mp-checkbox label="在轮船上" value="7" checked="{{false}}"></mp-checkbox>
+                                <mp-checkbox label="在其他公共场所" value="8" checked="{{false}}"></mp-checkbox>
+                        </mp-checkbox-group>
+                </mp-cells>
+
+                <mp-cells title="请填写乘坐交通工具详情" wx:if="{{showInputField}}">
+                        <mp-cell show-error prop="tanNo" title="编号" ext-class=" ">
+                                <input bindinput="formInputChange" data-field="tanNo" class="weui-input" placeholder="请输入车次/航班号等" />
+                        </mp-cell>
+                        <mp-cell prop="tanNoSub" title="座位" ext-class=" ">
+                                <input bindinput="formInputChange" data-field="tanNoSub" class="weui-input" placeholder="请输入车厢/座位 " />
+                        </mp-cell>
+                </mp-cells>
+                <mp-cells title="请选择您去过的地点" wx:if="{{showAddressField}}">
+                        <mp-cell show-error prop="address" title="地点" ext-class=" ">
+                                <input bindinput="formInputChange" data-field="address" class="weui-input" data-lat="{{address.latitude}}" data-lng="{{address.longitude}}" data-address="{{address.address}}" placeholder="请从地图选择地点" value="{{address.title}}" bindtap="chooseLocation" />
+                        </mp-cell>
+                </mp-cells>
+        </mp-form>
+
+        <view slot="button" wx:if="{{showButton}}">
+                <button class="weui-btn" type="primary" bindtap="submitForm">确定</button>
+        </view>
+</mp-form-page>
+
+<view class="page" wx:if="{{showAnalytics===true}}">
+        <view class="page__bd page__bd_spacing">
+                <view class="weui-panel weui-panel_access">
+                        <view class="weui-panel__bd">
+                                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                                        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                                                <image class="weui-media-box__thumb" src="{{userInfo.avatarUrl}}" />
+                                        </view>
+                                        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                                                <view class="weui-media-box__title">{{userInfo.nickName}}</view>
+                                                <view class="weui-media-box__desc">{{analyticsDescription}}</view>
+                                        </view>
+                                </navigator>
+                        </view>
+                </view>
+                <view class="container">
+                        <view class="sections" wx:if="{{showRank===true}}">
+                                <view class="section" open-type="share">
+                                        <view class="section-title">
+                                                <text class="title">安全等级证书</text>
+                                                <image class="next-icon" src="../../images/nextIcon.png" mode="cover"></image>
+                                        </view>
+                                        <view class="section-content" style="margin-bottom: 50rpx;">
+                                                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                                                        <image class="weui-media-box__thumb" src="{{dangerRank.image}}" />
+                                                </view>
+                                                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                                                        <view class="weui-media-box__title">{{dangerRank.title}}</view>
+                                                        <view class="weui-media-box__desc">{{userInfo.nickName}}, 您这段时间的风险概率为{{dangerPercent}}%</view>
+                                                </view>
+                                        </view>
+                                        <view class="section-content">
+                                                <view class="section-content-item">
+                                                        <text>行程开始时间</text>
+                                                        <text class="value" style="font-size: 24rpx;">{{analyticsStartDate}}</text>
+                                                </view>
+                                                <view class="section-content-item">
+                                                        <text>行程结束时间</text>
+                                                        <text class="value" style="font-size: 24rpx;">{{analyticsEndDate}}</text>
+                                                </view>
+                                        </view>
+                                </view>
+
+                                <view class="weui-flex" style="margin-top:80rpx;">
+                                        <view class="weui-flex__item">
+                                                <button class=" button-full weui-btn" type="default" open-type="share">告诉朋友我现在很安全</button>
+                                        </view>
+                                </view>
+
+                                <view class="weui-flex" style="margin-top:80rpx;">
+                                        <view class="weui-flex__item">
+                                                <button class=" button-full weui-btn" type="default" bindtap="cleanForm">重新开始评测</button>
+                                        </view>
+                                </view>
+                        </view>
+                </view>
+                <view class="weui-panel weui-panel_access">
+                        <view class="weui-panel__bd">
+                                <mp-cells ext-class="my-cells">
+                                        <block wx:for="{{analyticsResult}}" wx:for-item="v" wx:key="k">
+                                                <mp-cell link hover data-lat="{{v.latitude}}" data-lng="{{v.longitude}}" data-title="{{v.title}}" data-des="{{v.address}}" data-duration="{{v.duration}}" data-distance="{{v.distance}}" data-id="{{v.id}}" bindtap='chooseSerTip'>
+                                                        <view style="font-size: 24rpx">{{v.title}}</view>
+                                                        <view style="font-size: 24rpx;color: #888888;">{{v.description}}</view>
+                                                        <view style="font-size: 22rpx" slot="footer">风险{{v.danger}}%</view>
+                                                </mp-cell>
+                                        </block>
+                                </mp-cells>
+                        </view>
+                </view>
+
+
+        </view>
+</view>

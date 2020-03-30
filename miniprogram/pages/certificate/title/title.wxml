@@ -1,0 +1,54 @@
+<!--pages/dailyAttendance/title/title.wxml-->
+<view class="my-level">
+    <view class="rectangle"></view>
+    <view class="mylevel-flex">
+        <image class="mylevel-icon" src="{{startObj.rank.image}}" />
+        <view class="mylevel-box">
+            <view class="level-content">{{startObj.rank.title}}</view>
+            <view class="level-integral">{{startObj.rank.des}}</view>
+        </view>
+                <!--     <navigator url="./pointTricks/pointTricks">
+            <view class="level-strategy">
+                <image class="strategy-icon" src="../../../images/title/strategy.png" />
+                积分攻略
+            </view>
+        </navigator> -->
+    </view>
+</view>
+<view class="level-list">
+    <view class="level-box">
+        <image class="level-icon" src="../../../images/7.png" />
+        <text class="level-name">安全等级7</text>
+        <text class="level-require">未接触疫情40天以上</text>
+    </view>
+    <view class="level-box">
+        <image class="level-icon" src="../../../images/6.png" />
+        <text class="level-name">安全等级6</text>
+        <text class="level-require">未接触疫情30天以上</text>
+    </view>
+    <view class="level-box">
+        <image class="level-icon" src="../../../images/5.png" />
+        <text class="level-name">安全等级5</text>
+        <text class="level-require">未接触疫情20天以上</text>
+    </view>
+    <view class="level-box">
+        <image class="level-icon" src="../../../images/4.png" />
+        <text class="level-name">安全等级4</text>
+        <text class="level-require">未接触疫情14天以上</text>
+    </view>
+    <view class="level-box">
+        <image class="level-icon" src="../../../images/3.png" />
+        <text class="level-name">安全等级3</text>
+        <text class="level-require">未接触疫情7天以上</text>
+    </view>
+    <view class="level-box">
+        <image class="level-icon" src="../../../images/2.png" />
+        <text class="level-name">安全等级2</text>
+        <text class="level-require">未接触疫情2天以上</text>
+    </view>
+    <view class="level-box">
+        <image class="level-icon" src="../../../images/1.png" />
+        <text class="level-name">安全等级1</text>
+        <text class="level-require">未接触疫情1天以上</text>
+    </view>
+</view>

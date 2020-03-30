@@ -1,0 +1,23 @@
+  <button open-type="contact" bindcontact="onCustomerServiceButtonClick">
+      进入客服消息
+    </button>
+ <view class="list">
+    <view class="list-item" bindtap="onGetWXACode">
+      <text>获取小程序码</text>
+    </view>
+    <view class="list-item" wx:if="{{wxacodeResult}}">
+      <text class="request-text">{{wxacodeResult}}</text>
+      <text class="request-text" wx:if="{{showClearWXACodeCache}}" bindtap="clearWXACodeCache">清除缓存</text>
+    </view>
+  </view>
+
+  <view class="guide">
+    <text class="headline">测试须知</text>
+    <text class="p">1. 需上传 cloudfunctions 目录下的 openapi 云函数</text>
+    <text class="p">2. 云函数中获取图片后会上传至存储空间并返回至小程序使用和缓存</text>
+    <text class="p">3. 云存储需设置为公有读</text>
+  </view>
+
+  <view class="guide">
+    <image src="{{wxacodeSrc}}" mode="aspectFit"></image>
+  </view>

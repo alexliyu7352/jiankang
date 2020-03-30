@@ -1,0 +1,8 @@
+{
+        "usingComponents": {},
+        "navigationBarBackgroundColor": "#54e7ee",
+        "navigationBarTitleText": "我的安全等级",
+        "backgroundTextStyle": "dark",
+        "navigationBarTextStyle": "black",
+        "disableScroll": true
+}

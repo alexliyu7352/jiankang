@@ -1,0 +1,59 @@
+<!--pages/personalCenter/personalCenter.wxml-->
+<view class="container" style="justify-content: start;">
+        <view class="top">
+                <view class="top-inner">
+                        <open-data class="avatar" type="userAvatarUrl"></open-data>
+                        <view class="info">
+                                <view class="info-name">{{userInfo.nickName}}</view>
+                                <view class="info-num">{{startObj.rank.title}}</view>
+                        </view>
+
+                        <navigator url="./title/title">
+                                <image class="identification {{Shake==1?'shake':''}}" src="../../images/dailyAttendanceImage/medal.png" />
+                        </navigator>
+
+                </view>
+        </view>
+        <view class="sections">
+                <view class="section" open-type="share">
+                        <view class="section-title">
+                                <text class="title">安全等级证书</text>
+                                <image class="next-icon" src="../../images/nextIcon.png" mode="cover"></image>
+                        </view>
+                        <view class="section-content" style="margin-bottom: 50rpx;">
+                                <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                                        <image class="weui-media-box__thumb" src="{{startObj.rank.image}}" />
+                                </view>
+                                <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                                        <view class="weui-media-box__title">{{startObj.rank.title}}</view>
+                                        <view class="weui-media-box__desc">{{userInfo.nickName}},您已经成功的规避风险{{startObj.days}}天</view>
+                                </view>
+                        </view>
+                        <view class="section-content">
+                                <view class="section-content-item">
+                                        <text>隔离开始时间</text>
+                                        <text class="value" style="font-size: 24rpx;">{{startObj.dateString}}</text>
+                                </view>
+                                <view class="section-content-item">
+                                        <text>隔离总共时间</text>
+                                        <text class="value" style="font-size: 24rpx;">{{startObj.days}}天</text>
+                                </view>
+                        </view>
+                </view>
+               
+                <view class="weui-flex" style="margin-top:80rpx;">
+                        <view class="weui-flex__item">
+                                <button class=" button-full weui-btn" type="default" open-type="share" >告诉朋友我现在很安全</button>
+                        </view>
+                </view>
+
+                <!--转到排行榜模块-->
+                <navigator url="../rank/rank">
+                        <view class="rank">
+                                <image src="../../images/dailyAttendanceImage/protrait.png" />
+                                <text class="no1">张晓松夺得今日排行榜冠军</text>
+                                <image src="../../images/nextIcon.png" class="next" />
+                        </view>
+                </navigator>
+        </view>
+</view>

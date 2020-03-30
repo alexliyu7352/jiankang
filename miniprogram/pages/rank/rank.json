@@ -1,0 +1,8 @@
+{
+        "usingComponents": {},
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "朋友安全排名",
+        "backgroundTextStyle": "dark",
+        "navigationBarTextStyle": "black",
+        "disableScroll": true
+}

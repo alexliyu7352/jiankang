@@ -1,0 +1,60 @@
+@import '../common.wxss';
+/* pages/personalCenter/personalCenter.js.wxss */.container{display: flex;flex-direction: column;height: 100vh;background-color: #fcfefe;}
+.container .top{height: 240rpx;width: 100%;background: linear-gradient(to right,  rgb(20,182,207) 0%,rgb(20,205,207) 100%);}
+.container .top .top-inner{display: flex;flex-direction: row;margin: 0 auto;align-items: center;width: 690rpx;height: 100%;}
+.container .top .top-inner .avatar {width: 128rpx;height: 128rpx;border-radius: 50%;overflow: hidden;}
+.container .top .top-inner .info {flex: 1;color: #fff;margin-left: 30rpx;}
+.container .top .top-inner .info .info-name {font-size: 30rpx;font-weight: bold;letter-spacing: 2rpx;}
+.container .top .top-inner .info .info-num {font-size: 20rpx;line-height: 50rpx;letter-spacing: 1rpx;}
+.container .top .top-inner .identification {width: 75rpx;height: 55rpx;margin-right: 20rpx}
+.container .sections{margin-top: -20rpx;display: flex;flex-direction: column;justify-content: space-between;height: 548rpx;align-items: center;}
+.container .sections .section{box-sizing: border-box;box-shadow: 0rpx 3rpx 7rpx 3rpx #ecf2f3;width: 690rpx;border-radius: 8rpx;background-color: #ffffff;display: flex;flex-direction: column;padding: 28rpx;justify-content: space-between;font-size: 24rpx;}
+.container .sections .section .section-title{display: flex;flex-direction: row;font-weight: bold;}
+.container .sections .section .next-icon{width: 11rpx;height: 20rpx;}
+.container .sections .section .section-content{display: flex;flex-direction: row;}
+.container .sections .section .section-content .section-content-item{flex: 1;display: flex;flex-direction: column;justify-content: space-between;height: 83rpx;}
+.container .sections .section .section-content .section-content-item .value{font-weight: bold;font-size: 34rpx;}
+.container .sections .my-mooc{height: 97rpx;display: flex;flex-direction: row;align-items: center;font-size: 28rpx;letter-spacing: 1rpx;}
+.container .sections .my-mooc  .mooc-icon{width: 40rpx;height: 40rpx;margin-right: 30rpx;}
+.title{flex: 1;}
+@keyframes shake {
+    12%{transform: rotate(10deg);}
+    25%{transform: rotate(0deg);}
+    37%{transform: rotate(-10deg);}
+    50%{transform: rotate(0deg);}
+    62%{transform: rotate(10deg);}
+    75%{transform: rotate(0deg);}
+    87%{transform: rotate(-10deg);}
+    100%{transform: rotate(0deg);}
+}
+.shake {animation: shake 0.8s;}
+
+/*--------排行榜--------*/
+.rank {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600rpx;
+  height: 80rpx;
+  margin: 5vh 75rpx 6vh 75rpx;
+  border-radius: 40rpx;
+  box-shadow: 0 0 8rpx 1rpx #ebebeb;
+}
+.rank > image {
+  width: 54rpx;
+  height: 54rpx;
+  margin: 0 18rpx 0 26rpx;
+  background-color: #76a4ca;
+  border-radius: 50%;
+}
+.rank .no1 {
+  flex: 1;
+  font-size: 24rpx;
+  color: #505050;
+}
+.rank .next {
+  width: 12rpx;
+  height: 22rpx;
+  margin-right: 32rpx;
+  background-color: #fff;
+}

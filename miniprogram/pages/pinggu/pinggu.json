@@ -1,0 +1,13 @@
+{
+        "component": true,
+        "navigationBarTitleText": "安全评估",
+        "usingComponents": {
+                "mp-form-page": "../../weui/form-page/form-page",
+                "mp-toptips": "../../weui/toptips/toptips",
+                "mp-cells": "../../weui/cells/cells",
+                "mp-cell": "../../weui/cell/cell",
+                "mp-checkbox": "../../weui/checkbox/checkbox",
+                "mp-checkbox-group": "../../weui/checkbox-group/checkbox-group",
+                "mp-form": "../../weui/form/form"
+        }
+}

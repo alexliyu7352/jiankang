@@ -1,0 +1,90 @@
+<view class="page" wx:if="{{hasPermssion===true}}">
+        <view class="page__bd page__bd_spacing">
+                <view class="weui-panel weui-panel_access" wx:if="{{startObj!==null}}">
+                        <view class="weui-panel__bd">
+                                <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                                        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                                                <image class="weui-media-box__thumb" src="{{userInfo.avatarUrl}}" />
+                                        </view>
+                                        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                                                <view class="weui-media-box__title">{{startObj.rank.title}}</view>
+                                                <view class="weui-media-box__desc">{{userInfo.nickName}}您于{{startObj.dateString}}开始进行自我隔离已经持续{{startObj.days}}天了, 请再接再厉</view>
+                                        </view>
+                                </navigator>
+                        </view>
+                </view>
+                <view class="weui-flex">
+                        <view class="weui-flex__item">
+                                <map id="myMap" markers="{{markers}}" style="width:100%;height:400rpx;" longitude="{{longitude}}" latitude="{{latitude}}" scale='{{scale}}' show-location show-compass show-scale circles="{{circles}}" polyline="{{polyline}}" bindmarkertap='bindmarkertap' bindpoitap="bindpoitap"
+                                        controls="{{}}" bindregionchange="regionchange">
+                                        <cover-view class="controls_right">
+                                                <cover-view class="img" bindtap="controltap">
+                                                        <cover-image class="track_img" src="/images/map_danger.png" />
+                                                </cover-view>
+                                        </cover-view>
+                                        <cover-view class="controls_right2">
+                                                <cover-view class="img" bindtap="settingtap">
+                                                        <cover-image class="track_img" src="/images/setting.png" />
+                                                </cover-view>
+                                        </cover-view>
+
+                                </map>
+                        </view>
+                </view>
+                <view class="weui-panel ">
+                        <view class="weui-form-preview__ft">
+                                <view class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="showPoint">我的踪迹</view>
+                                <view class="weui-form-preview__btn weui-form-preview__btn_default" hover-class="weui-form-preview__btn_active" bindtap="showYq">周边疫情</view>
+                        </view>
+                </view>
+                <mp-cells ext-class="my-cells" wx:if="{{adrIsShow}}">
+                        <block wx:for="{{addressArr}}" wx:for-item="v" wx:key="k">
+                                <mp-cell link hover data-lat="{{v.latitude}}" data-lng="{{v.longitude}}" data-title="{{v.title}}" data-des="{{v.address}}" data-duration="{{v.duration}}" data-distance="{{v.distance}}" data-id="{{v.id}}" bindtap='chooseSerTip'>
+                                        <view>{{v.title}}</view>
+                                        <view style="font-size: 24rpx;color: #888888;">{{v.address}}</view>
+                                        <view style="font-size: 22rpx" slot="footer">{{v.distance_t}}</view>
+                                </mp-cell>
+                        </block>
+                </mp-cells>
+                <!-- 搜索出的地址列表： -->
+                <mp-cells ext-class="my-cells" wx:if="{{pointIsShow}}">
+                        <block wx:for="{{pointArr}}" wx:for-item="v" wx:key="k">
+                                <mp-cell link hover data-lat="{{v.latitude}}" data-lng="{{v.longitude}}" data-title="{{v.title}}" data-des="{{v.address}}" data-duration="{{v.duration}}" data-distance="{{v.distance}}" data-id="{{v.id}}" bindtap='chooseSerTip'>
+                                        <view>{{v.title}}</view>
+                                        <view style="font-size: 24rpx;color: #888888;">{{v.address}}</view>
+                                        <view style="font-size: 22rpx" slot="footer">离家{{v.distance_t}}</view>
+                                </mp-cell>
+                        </block>
+                </mp-cells>
+        </view>
+</view>
+
+<view class="page" wx:if="{{hasPermssion!==true}}">
+        <view class="page__bd page__bd_spacing">
+                <view class="weui-flex">
+                        <view class="weui-flex__item">
+                                <image style="width: 100%;" mode="widthFix" src="../../images/banner.jpg"></image>
+                        </view>
+                </view>
+                <view class="weui-flex">
+                        <view class="weui-flex__item">
+                                <view class="weui-panel weui-panel_access">
+                                        <view class="weui-panel__hd">什么是自我审查证</view>
+                                        <view class="weui-panel__bd">
+                                                <view class="weui-media-box weui-media-box_text">
+                                                        自动记录您的行动踪迹并与云端病毒库进行对比,当您靠近疑似感染发生区域时会进行报警.同时本程序会根据您的安全情况给予您不同的安全等级评分. 用以证明您在过去的时间内并没有接触过疫情区域.
+                                                </view>
+                                        </view>
+                                </view>
+                        </view>
+                </view>
+
+                <view class="weui-flex">
+                        <view class="weui-flex__item">
+                                <button wx:if="{{!hasUserInfo}}" class=" button-full weui-btn" type="default" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">登陆并开始记录</button>
+                                <button wx:elif="{{!hasAddressPremsson}}" class=" button-full weui-btn" type="default" bindtap="getAddress">需要获得您家的地址</button>
+                                <button wx:elif="{{!hasLocationPremssion}}" class=" button-full weui-btn" type="default" bindtap="getLocationPremssion">需要获得允许后台运行权限</button>
+                        </view>
+                </view>
+        </view>
+</view>

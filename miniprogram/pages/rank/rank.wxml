@@ -1,0 +1,225 @@
+<!--pages/dailyAttendance/rank/rank.wxml-->
+<!--日月年排行切换-->
+<view class="swiper">
+    <view class="swiper-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">安全等级榜</view>
+    <view class="swiper-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">出行次数榜</view>
+    <view class="swiper-item {{currentTab==2?'active':''}}" data-current="2" bindtap="clickTab">危险等级榜</view>
+</view>
+<swiper class="rank" current="{{currentTab}}" duration="300" bindchange="swiperTab">
+    <!--日排行-->
+    <swiper-item class="daily-rank">
+        <scroll-view scroll-y >
+            <!--第一名-->
+            <view class="list first-student">
+                <image src="../../images/rank/medal1.png" />
+                <view class="student">
+                    <image class="student-protrait-bg" src="../../images/rank/first.png" />
+                    <image class="student-protrait" src="../../images/rank/protrait1.png" />
+                    <view class="student-id">肖战</view>
+                </view>
+                <image class="shoes" src="../../images/rank/shoes.png"/>
+                <view class="mileage">50天</view>
+            </view>
+            <!--第二名及之后-->
+            <view class="list">
+                <image src="../../images/rank/medal2.png" />
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait2.png" />
+                    <view class="student-id">张晓松</view>
+                </view>
+                <view class="mileage">44天</view>
+            </view>
+            <view class="list">
+                <image src="../../images/rank/medal3.png" />
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait3.png" />
+                    <view class="student-id">花间一亩田</view>
+                </view>
+                <view class="mileage">33天</view>
+            </view>
+            <view class="list">
+                <view class="num">4</view>
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait4.png" />
+                    <view class="student-id">高林林</view>
+                </view>
+                <view class="mileage">30天</view>
+            </view>
+            <view class="list">
+                <view class="num">5</view>
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait5.png" />
+                    <view class="student-id">钱小华</view>
+                </view>
+                <view class="mileage">20天</view>
+            </view>
+            <view class="list">
+                <view class="num">6</view>
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait6.png" />
+                    <view class="student-id">小甜甜</view>
+                </view>
+                <view class="mileage">20天</view>
+            </view>
+            <view class="list">
+                <view class="num">7</view>
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait5.png" />
+                    <view class="student-id">不见森林</view>
+                </view>
+                <view class="mileage">18天</view>
+            </view>
+            <view class="list">
+                <view class="num">8</view>
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait4.png" />
+                    <view class="student-id">林林</view>
+                </view>
+                <view class="mileage">17天</view>
+            </view>
+            <view class="list">
+                <view class="num">9</view>
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait5.png" />
+                    <view class="student-id">钱小森</view>
+                </view>
+                <view class="mileage">15天</view>
+            </view>
+            <view class="list">
+                <view class="num">10</view>
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait6.png" />
+                    <view class="student-id">大甜甜</view>
+                </view>
+                <view class="mileage">10天</view>
+            </view>
+            <!--最多显示200人-->
+            <view class="more">最多显示10人</view>
+        </scroll-view>
+        <!--自己的排名-->
+        <view class="list me">
+            <view class="num">7</view>
+            <view class="student">
+                <image class="student-protrait" src="../../images/rank/protrait5.png" />
+                <view class="student-id">不见森林</view>
+            </view>
+            <view class="mileage">1天</view>
+        </view>
+    </swiper-item>
+    <!--月排行-->
+    <swiper-item class="monthly-rank">
+        <scroll-view scroll-y >
+            <!--第一名-->
+            <view class="list first-student">
+                <image src="../../images/rank/medal1.png" />
+                <view class="student">
+                    <image class="student-protrait-bg" src="../../images/rank/first.png" />
+                    <image class="student-protrait" src="../../images/rank/protrait1.png" />
+                    <view class="student-id">肖战</view>
+                </view>
+                <image class="shoes" src="../../images/rank/shoes.png"/>
+                <view class="mileage">200次</view>
+            </view>
+            <!--第二名及之后-->
+            <view class="list">
+                <image src="../../images/rank/medal2.png" />
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait2.png" />
+                    <view class="student-id">张晓松</view>
+                </view>
+                <view class="mileage">200次</view>
+            </view>
+            <view class="list">
+                <image src="../../images/rank/medal3.png" />
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait3.png" />
+                    <view class="student-id">花间一亩田</view>
+                </view>
+                <view class="mileage">200次</view>
+            </view>
+            <view class="list">
+                <view class="num">4</view>
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait4.png" />
+                    <view class="student-id">高林林</view>
+                </view>
+                <view class="mileage">200次</view>
+            </view>
+            <view class="list">
+                <view class="num">5</view>
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait5.png" />
+                    <view class="student-id">不见森林</view>
+                </view>
+                <view class="mileage">200次</view>
+            </view>
+          </scroll-view>
+        <!--自己的排名-->
+          <view class="list me">
+              <view class="num">5</view>
+              <view class="student">
+                  <image class="student-protrait" src="../../images/rank/protrait5.png" />
+                  <view class="student-id">不见森林</view>
+              </view>
+              <view class="mileage">200次</view>
+          </view>
+    </swiper-item>
+    <!--年排行-->
+    <swiper-item class="yearly-rank">
+        <scroll-view scroll-y >
+            <!--第一名-->
+            <view class="list first-student">
+                <image src="../../images/rank/medal1.png" />
+                <view class="student">
+                    <image class="student-protrait-bg" src="../../images/rank/first.png" />
+                    <image class="student-protrait" src="../../images/rank/protrait1.png" />
+                    <view class="student-id">肖战</view>
+                </view>
+                <image class="shoes" src="../../images/rank/shoes.png"/>
+                <view class="mileage">3.61公里</view>
+            </view>
+            <!--第二名及之后-->
+            <view class="list">
+                <image src="../../images/rank/medal2.png" />
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait5.png" />
+                    <view class="student-id">不见森林</view>
+                </view>
+                <view class="mileage">3.6公里</view>
+            </view>
+            <view class="list">
+                <image src="../../images/rank/medal3.png" />
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait2.png" />
+                    <view class="student-id">张晓松</view>
+                </view>
+                <view class="mileage">3.5公里</view>
+            </view>
+            <view class="list">
+                <view class="num">4</view>
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait3.png" />
+                    <view class="student-id">花间一亩田</view>
+                </view>
+                <view class="mileage">3.0公里</view>
+            </view>
+            <view class="list">
+                <view class="num">5</view>
+                <view class="student">
+                    <image class="student-protrait" src="../../images/rank/protrait4.png" />
+                    <view class="student-id">高林林</view>
+                </view>
+                <view class="mileage">2.6公里</view>
+            </view>
+        </scroll-view>
+        <!--自己的排名-->
+        <view class="list me">
+            <image src="../../images/rank/medal2.png" />
+            <view class="student">
+                <image class="student-protrait" src="../../images/rank/protrait5.png" />
+                <view class="student-id">不见森林</view>
+            </view>
+            <view class="mileage">3.6公里</view>
+        </view>
+    </swiper-item>
+</swiper>
